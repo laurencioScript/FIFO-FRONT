@@ -1,0 +1,11 @@
+<form>
+<h2>Bem Vindo</h2>
+<mat-form-field appearance="outline">
+  <mat-label>NickName</mat-label>
+  <input matInput [(ngModel)]="nickName" name="nickname" type="text" placeholder="Insira seu nickname">
+</mat-form-field>
+<div>
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-raised-button (click)="login()">Entrar</button>
+</div>
+</form>
