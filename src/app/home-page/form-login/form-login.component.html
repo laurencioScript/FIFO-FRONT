@@ -1,11 +1,24 @@
 <form>
-<h2>Bem Vindo</h2>
-<mat-form-field appearance="outline">
-  <mat-label>NickName</mat-label>
-  <input matInput [(ngModel)]="nickName" name="nickname" type="text" placeholder="Insira seu nickname">
-</mat-form-field>
-<div>
-  <button mat-button mat-dialog-close>Cancelar</button>
-  <button mat-raised-button (click)="login()">Entrar</button>
-</div>
+  <h2>BEM-VINDO</h2>
+  <div class="form-group">
+    <mat-form-field appearance="outline">
+      <mat-label>nickname</mat-label>
+      <input
+        matInput
+        [(ngModel)]="nickName"
+        name="nickname"
+        type="text"
+        placeholder="Ex.: @sanguelaranja"
+      />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>senha</mat-label>
+      <input matInput name="senha" type="text" placeholder="Ex.: 1234" />
+    </mat-form-field>
+  </div>
+  <div class="btn-group">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-stroked-button (click)="login()">Entrar</button>
+  </div>
 </form>
