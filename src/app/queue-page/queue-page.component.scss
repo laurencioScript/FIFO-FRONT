@@ -1,0 +1,82 @@
+$orange : #FC6027;
+$ice : #E5E5E5;
+$purple : #4B4FA1;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+header{
+  padding: 16px;
+  background-color: $purple;
+  height: 80px;
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 16px;
+
+  img {
+    width: 200px;
+  }
+}
+button {
+  background-color: $orange;
+  color: $ice;
+  margin: 0 8px;
+}
+main {
+  background-color: $purple;
+  height: 100%;
+  font-size: 16px;
+}
+.container-queue {
+  margin: 0px 32px;
+  padding: 8px;
+  background-color: $ice;
+  border-radius: 16px;
+}
+.info-queue {
+  margin: 16px;
+  display: flex;
+  justify-content: space-between;
+
+  h1 {
+    font-weight: bold;
+    color: $orange;
+  } 
+}
+.container-queue-cards {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+mat-card {
+  margin: 16px;
+  min-height: 150px;
+  min-width: 150px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  color: $purple;
+  transition: 2s;
+}
+.avatar-gamer {
+  margin: 0 auto;
+  height: 80px;
+  width: 80px;
+  background: url("/assets/img/gamepad.png") no-repeat center;
+  border-radius: 50%;
+}
+@media only screen and (max-width: 700px) {
+  .container-queue {
+    margin: 16px;
+  }
+
+  mat-card {
+    margin: 8px;
+    min-height: 120px;
+    min-width: 120px;
+  }
+}

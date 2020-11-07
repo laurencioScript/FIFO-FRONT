@@ -15,12 +15,15 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 
+import {MatCardModule} from '@angular/material/card';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     FormLoginComponent,
-    QueuePageComponent
+    QueuePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import {MatInputModule} from '@angular/material/input';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatCardModule,
     
   ],
   providers: [],
