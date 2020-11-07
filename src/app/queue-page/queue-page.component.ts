@@ -11,5 +11,7 @@ export class QueuePageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  getinQueue(){
+    
+  }
 }

@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container-queue {
+  margin: 16px;
+  padding: 8px;
+  background-color: rgb(167, 159, 167);
+  border-radius: 16px;
+}
+.info-queue {
+  margin: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.info-queue h1 {
+  font-size: 18px;
+}
+.container-queue-cards {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+mat-card {
+  margin: 16px;
+  min-height: 150px;
+  min-width: 150px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.avatar-gamer {
+  margin: 0 auto;
+  height: 80px;
+  width: 80px;
+  background: url("/assets/gamepad.png") no-repeat center;
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 700px) {
+  .container-queue {
+    margin: 16px;
+  }
+  mat-card {
+    margin: 8px;
+    min-height: 120px;
+    min-width: 120px;
+  }
+}
