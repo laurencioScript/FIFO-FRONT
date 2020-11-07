@@ -1,0 +1,15 @@
+mat-card {
+  margin: 16px;
+  min-height: 150px;
+  min-width: 150px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.avatar-gamer {
+  margin: 0 auto;
+  height: 80px;
+  width: 80px;
+  background: url("/assets/gamepad.png") no-repeat center;
+  border-radius: 50%;
+}

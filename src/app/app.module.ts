@@ -15,12 +15,16 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 
+import {MatCardModule} from '@angular/material/card';
+import { CardQueueComponent } from './card-queue/card-queue.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     FormLoginComponent,
-    QueuePageComponent
+    QueuePageComponent,
+    CardQueueComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,8 @@ import {MatInputModule} from '@angular/material/input';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatCardModule,
     
   ],
   providers: [],

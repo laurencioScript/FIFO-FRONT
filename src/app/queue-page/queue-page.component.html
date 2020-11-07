@@ -1,1 +1,16 @@
-<p>queue-page works!</p>
+<main>
+  <section class="container-queue">
+
+    <div class="info-queue">
+      <h1> Atividade </h1>
+      <button mat-raised-button (click)="getinQueue()">Entrar na fila</button>
+    </div>
+    <div class="container-queue-cards">
+
+      <app-card-queue></app-card-queue>
+      <app-card-queue></app-card-queue>
+      <app-card-queue></app-card-queue>
+
+    </div>
+  </section>
+</main>
