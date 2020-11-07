@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "fifo"
+  "defaultProject": "fifo",
+  "cli": {
+    "analytics": "5c2e10c3-9dbd-4849-94a2-a815355efa98"
+  }
 }
