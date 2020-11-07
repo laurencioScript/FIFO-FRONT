@@ -127,8 +127,8 @@
         "deploy": {
           "builder": "@netlify-builder/deploy:deploy",
           "options": {
-            "outputPath": "dist",
-            "netlifyToken": "",
+            "outputPath": "dist/fifo",
+            "netlifyToken": "WUrlm-P8WXwrcx3UHKb9MzWtkSw8Pq_bOtCwoWGKETk",
             "siteId": "WUrlm-P8WXwrcx3UHKb9MzWtkSw8Pq_bOtCwoWGKETk"
           }
         }
