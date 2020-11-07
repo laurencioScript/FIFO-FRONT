@@ -1,13 +1,27 @@
 <div id="container">
   <header id="header">
     <div>
-      logo
+      <img src="../../assets/logo.svg" alt="">
     </div>
 
     <div>
-      <button mat-button (click)="openFormLogin()" >Fazer login</button>
-      <button mat-raised-button >Cadastrar-se</button>
+      <button mat-button (click)="openFormLogin()" class="login" >Fazer login</button>
+      <button mat-raised-button class="cadastro">Cadastrar-se</button>
     </div>
   </header>
 
+  <main class="content">
+    <div>
+      <p><strong>O FIFO ajuda com a
+      organização nas atividades da sua
+      empresa.</strong></p>
+      <span>
+      Os usuários podem criar atividades e
+      vincular elas a um board. Com isso a
+      equipe consegue saber a disponibilidade
+      das atividades.
+      </span>
+    </div>
+    <img src="../../assets/landing.svg" alt="">
+  </main>
 </div>
