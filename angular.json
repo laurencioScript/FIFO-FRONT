@@ -123,6 +123,14 @@
               "devServerTarget": "fifo:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist",
+            "netlifyToken": "",
+            "siteId": "WUrlm-P8WXwrcx3UHKb9MzWtkSw8Pq_bOtCwoWGKETk"
+          }
         }
       }
     }
