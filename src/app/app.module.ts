@@ -16,7 +16,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 
 import {MatCardModule} from '@angular/material/card';
-import { CardQueueComponent } from './card-queue/card-queue.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +24,6 @@ import { CardQueueComponent } from './card-queue/card-queue.component';
     HomePageComponent,
     FormLoginComponent,
     QueuePageComponent,
-    CardQueueComponent
   ],
   imports: [
     BrowserModule,
