@@ -1,21 +1,27 @@
+<header>
+  <nav>
+    <img src="/assets/img/logo-fc.png">
+    <button mat-raised-button (click)="logout()">Sair</button>
+  </nav>
+</header>
 <main>
-  <button (click)="logout()">Sair</button>
   <section class="container-queue">
     <div class="info-queue">
       <h1> Atividade </h1>
+      <div>
       <button mat-raised-button *ngIf="userIsQueue()" (click)="leaveQueue()">Sair na fila</button>
       <button mat-raised-button [disabled]="userIsQueue()" (click)="enterQueue()">Entrar na fila</button>
     </div>
+    </div>
     <div class="container-queue-cards">
-      <mat-card *ngFor="let user of users; let i = index" >
+      <mat-card *ngFor="let user of users; let i = index">
         <div>
           <div class="avatar-gamer"></div>
           <div>
-            <p>POSIÇÃO #{{i+1}}</p>
+            <p>Posição <b>#{{i+1}}</b></p>
             <p>{{user.nickname}}</p>
-            <p> #Jogando</p>
+            <p>Em espera</p>
           </div>
-         
         </div>
       </mat-card>
     </div>
