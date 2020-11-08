@@ -129,7 +129,7 @@
           "builder": "@netlify-builder/deploy:deploy",
           "options": {
             "outputPath": "dist/fifo",
-            "netlifyToken": "",
+            "netlifyToken": "SInYA4CdfqjBSrrEizFH9Bbhi-S7SwThgFOoUJ5CfaQ",
             "siteId": "0a6aad36-3b79-4a1c-9a4a-0e767faf7bdf"
           }
         }
