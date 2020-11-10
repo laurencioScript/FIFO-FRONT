@@ -1,6 +1,8 @@
 <header>
   <nav>
-    <img src="/assets/img/logo-fc.png">
+    <a href="/">
+      <img src="/assets/img/logo-fc.png">
+    </a>
     <button mat-raised-button (click)="logout()">Sair</button>
   </nav>
 </header>
@@ -9,9 +11,9 @@
     <div class="info-queue">
       <h1> Atividade </h1>
       <div>
-      <button mat-raised-button *ngIf="userIsQueue()" (click)="leaveQueue()">Sair na fila</button>
-      <button mat-raised-button [disabled]="userIsQueue()" (click)="enterQueue()">Entrar na fila</button>
-    </div>
+        <button mat-raised-button *ngIf="userIsQueue()" (click)="leaveQueue()">Sair na fila</button>
+        <button mat-raised-button [disabled]="userIsQueue()" (click)="enterQueue()">Entrar na fila</button>
+      </div>
     </div>
     <div class="container-queue-cards">
       <mat-card *ngFor="let user of users; let i = index">
