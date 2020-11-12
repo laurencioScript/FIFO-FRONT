@@ -1,0 +1,20 @@
+<form>
+  <h2>Criar fila</h2>
+  <div class="form-group">
+    <mat-form-field appearance="outline">
+      <mat-label>Nome da fila</mat-label>
+      <input
+        matInput
+        [(ngModel)]="name"
+        name="name"
+        type="text"
+        placeholder=""
+        autocomplete="off"
+      />
+    </mat-form-field>
+  </div>
+  <div class="btn-group">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-stroked-button [disabled]="name.length <= 2" (click)="save()" >Entrar</button>
+  </div>
+</form>

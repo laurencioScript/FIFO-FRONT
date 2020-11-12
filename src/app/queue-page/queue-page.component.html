@@ -1,31 +1,38 @@
-<header>
-  <nav>
-    <a href="/">
-      <img src="/assets/img/logo-fc.png">
-    </a>
-    <button mat-raised-button (click)="logout()">Sair</button>
-  </nav>
-</header>
-<main>
-  <section class="container-queue">
-    <div class="info-queue">
-      <h1> Atividade </h1>
+<div id="container">
+  <header>
+    <nav>
+      <a href="/">
+        <img src="/assets/img/logo-fc.png">
+      </a>
       <div>
-        <button mat-raised-button *ngIf="userIsQueue()" (click)="leaveQueue()">Sair na fila</button>
-        <button mat-raised-button [disabled]="userIsQueue()" (click)="enterQueue()">Entrar na fila</button>
+        <button mat-raised-button (click)="openForm()">Criar Atividade</button>
+        <button mat-raised-button (click)="logout()">Sair</button>
       </div>
-    </div>
-    <div class="container-queue-cards">
-      <mat-card *ngFor="let user of users; let i = index">
+    </nav>
+  </header>
+  <main >
+    <section *ngFor="let queue of queues" class="container-queue">
+      <div class="info-queue">
+        <h1> {{queue.name}} </h1>
         <div>
-          <div class="avatar-gamer"></div>
-          <div>
-            <p>Posição <b>#{{i+1}}</b></p>
-            <p>{{user.nickname}}</p>
-            <p>Em espera</p>
-          </div>
+          <button mat-raised-button *ngIf="userIsQueue(queue.users)" (click)="leaveQueue(queue)">Sair na fila</button>
+          <button mat-raised-button [disabled]="userIsQueue(queue.users)" (click)="enterQueue(queue.users)">Entrar na fila</button>
+          <button mat-raised-button  (click)="deleteQueue(queue)">Apagar fila</button>
         </div>
-      </mat-card>
-    </div>
-  </section>
-</main>
+      </div>
+      <div class="container-queue-cards">
+        <mat-card *ngFor="let user of queue.users; let i = index">
+          <div>
+            <div class="avatar-gamer"></div>
+            <div>
+              <p>Posição <b>#{{i+1}}</b></p>
+              <p>{{user.nickname}}</p>
+              <p>Em espera</p>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </section>
+  </main>
+  
+</div>
