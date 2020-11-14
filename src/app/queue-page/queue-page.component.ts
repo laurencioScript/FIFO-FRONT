@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
+import { FormQueueComponent } from './form-queue/form-queue.component';
 
 interface User{
   id:any,
@@ -15,19 +17,24 @@ interface User{
 export class QueuePageComponent implements OnInit {
 
   userLogged : any ;
-  users : User[] = [
-    {
-      id:'1joel',
-      nickname:'Joel'
-  },{
-    id:'2Gigante',
-    nickname:'Gigante'
-  },{
-    id:'3Ariane',
-    nickname:'Ariane'
+  queues : any = [{
+    id : this.generateId(),
+    name : 'Atividade',
+    users : [
+      {
+        id:'1joel',
+        nickname:'Joel'
+    },{
+      id:'2Gigante',
+      nickname:'Gigante'
+    },{
+      id:'3Ariane',
+      nickname:'Ariane'
+    }]
   }];
+  
 
-  constructor(private authService : AuthService, private router : Router) {
+  constructor(private authService : AuthService, private router : Router, public dialog: MatDialog) {
     if(this.authService.getUser() == 'null' || !JSON.parse(this.authService.getUser()).id ){
       this.router.navigateByUrl("");
     }
@@ -38,19 +45,36 @@ export class QueuePageComponent implements OnInit {
     // quando tiver back end vai ser aqui que iremos consumir o end point que carrega os usuarios que estão na fila
   }
 
-  enterQueue(){
-    this.users.push(this.userLogged);
+  openForm(){
+    const dialogRef = this.dialog.open(FormQueueComponent);
+    dialogRef.afterClosed().subscribe(newQueue => {
+      if(newQueue && newQueue.id){
+        this.queues.push(newQueue);
+      }
+    });
   }
 
-  leaveQueue(){
+  enterQueue(users){
+    users.push(this.userLogged);
+  }
+
+  leaveQueue({users,id}){
     if(!this.userLogged){
       return
     }
-    this.users = this.users.filter(user => user.id != this.userLogged.id);
+    this.queues.forEach(queue => {
+      if(queue.id == id){
+        queue.users = queue.users.filter(user => user.id != this.userLogged.id);
+      }
+    })
   }
 
-  userIsQueue(){
-    return this.users.find(user => this.userLogged && user.id == this.userLogged.id);
+  userIsQueue(users){
+    return users.find(user => this.userLogged && user.id == this.userLogged.id);
+  }
+
+  deleteQueue({id}){
+    this.queues = this.queues.filter(queue => queue.id != id)
   }
 
   getRandomNumber(){
@@ -62,5 +86,8 @@ export class QueuePageComponent implements OnInit {
     this.router.navigateByUrl("");
   }
 
+  generateId(){
+    return Math.floor(Math.random() * 99999 + 1)
+  }
   
 }

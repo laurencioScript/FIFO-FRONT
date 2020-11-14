@@ -1,17 +1,19 @@
-$orange : #FC6027;
-$ice : #E5E5E5;
-$purple : #4B4FA1;
+$orange: #fc6027;
+$ice: #e5e5e5;
+$purple: #4b4fa1;
 
-* {
-  margin: 0;
-  padding: 0;
+#container {
+  height: 100%;
+  width: 100%;
+  background-color: $purple;
 }
-header{
+
+header {
   padding: 16px;
   background-color: $purple;
   height: 80px;
 }
-nav{
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,12 +29,13 @@ button {
   margin: 0 8px;
 }
 main {
-  background-color: $purple;
-  height: 100%;
   font-size: 16px;
+  height: 800px;
+  overflow: auto;
+  padding: 16px 0;
 }
 .container-queue {
-  margin: 0px 32px;
+  margin: 16px 32px;
   padding: 8px;
   background-color: $ice;
   border-radius: 16px;
@@ -45,7 +48,7 @@ main {
   h1 {
     font-weight: bold;
     color: $orange;
-  } 
+  }
 }
 .container-queue-cards {
   display: flex;
