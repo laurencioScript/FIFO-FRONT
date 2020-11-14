@@ -8,7 +8,7 @@ $purple: #4b4fa1;
 }
 form {
   width: 280px;
-  padding: 18px;
+  padding: 16px;
 
   mat-form-field {
     margin: 0px;
@@ -33,5 +33,15 @@ h2 {
   .mat-stroked-button {
     border: 1px solid $orange;
     border-radius: 0px;
+  }
+}
+@media screen and (max-width: 414px){
+  form {
+    width: 240px;
+    padding: 8px;
+  }
+  mat-form-field{
+    align-self: center;
+    max-width: 240px;
   }
 }
