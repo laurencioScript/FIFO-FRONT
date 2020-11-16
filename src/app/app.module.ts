@@ -14,9 +14,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import {MatCardModule} from '@angular/material/card';
 import { FormQueueComponent } from './queue-page/form-queue/form-queue.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { FormQueueComponent } from './queue-page/form-queue/form-queue.component
     MatInputModule,
     FormsModule,
     MatCardModule,
-    
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
