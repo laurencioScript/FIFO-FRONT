@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class FormLoginComponent implements OnInit {
 
-  nickName;
+  nickName : string = '';
 
   constructor(private readonly authService : AuthService, 
     private router : Router,

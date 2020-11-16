@@ -25,7 +25,8 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/_redirects"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
@@ -122,6 +123,14 @@
             "production": {
               "devServerTarget": "fifo:serve:production"
             }
+          }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/fifo",
+            "netlifyToken": "SInYA4CdfqjBSrrEizFH9Bbhi-S7SwThgFOoUJ5CfaQ",
+            "siteId": "0a6aad36-3b79-4a1c-9a4a-0e767faf7bdf"
           }
         }
       }

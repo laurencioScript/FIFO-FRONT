@@ -11,8 +11,8 @@ export class AuthService {
     localStorage.setItem('user',user)
   }
 
-  getUser(user){
-    return localStorage.setItem('user',user)
+  getUser(){
+    return localStorage.getItem('user')
   }
 
 }

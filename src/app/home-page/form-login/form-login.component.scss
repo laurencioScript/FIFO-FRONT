@@ -3,35 +3,58 @@ $ice: #e5e5e5;
 $purple: #4b4fa1;
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 form {
-    width: 280px;
-    padding: 18px;
+  width: 280px;
+  padding: 18px;
 
-    mat-form-field {
-        margin: 0px;
-        border-radius: 0px !important;
-        width: 280px;
-    }
+  mat-form-field {
+    margin: 0px;
+    border-radius: 0px !important;
+    width: 280px;
+  }
 }
 h2 {
-    text-align: center;
-    color: $orange;
+  text-align: center;
+  color: $orange;
 }
 .btn-group {
-    float: right;
-    margin: 0;
-    color: $orange;
+  float: right;
+  margin: 0;
+  color: $orange;
 
-    button {
-        margin: 0px 0px 0px 8px;
-        padding: 0px 32px;
-    }
+  button {
+    margin: 0px 0px 0px 8px;
+    padding: 0px 32px;
+  }
 
-    .mat-stroked-button {
-        border: 1px solid $orange;
-        border-radius: 0px;
+  .mat-stroked-button {
+    border: 1px solid $orange;
+    border-radius: 0px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  h2 {
+    text-align: center;
+  }
+
+  form {
+    width: 200px;
+    padding: 8px;
+
+    mat-form-field {
+      width: 200px;
     }
+  }
+
+  button {
+   width: 100px;
+  }
+
+  .btn-group { 
+    display: flex;
+  }
 }
