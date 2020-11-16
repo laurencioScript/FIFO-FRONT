@@ -35,3 +35,26 @@ h2 {
     border-radius: 0px;
   }
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  h2 {
+    text-align: center;
+  }
+
+  form {
+    width: 200px;
+    padding: 8px;
+
+    mat-form-field {
+      width: 200px;
+    }
+  }
+
+  button {
+   width: 100px;
+  }
+
+  .btn-group { 
+    display: flex;
+  }
+}
