@@ -1,6 +1,13 @@
 $orange: #fc6027;
 $ice: #e5e5e5;
 $purple: #4b4fa1;
+body {
+}
+#container {
+  height: 100%;
+  width: 100%;
+  background-color: $purple;
+}
 
 header {
   padding: 16px;
@@ -23,12 +30,13 @@ button {
   margin: 0 8px;
 }
 main {
-  background-color: $purple;
-  height: 100%;
   font-size: 16px;
+  overflow: auto;
+  padding: 16px 0;
+  background-color: $purple;
 }
 .container-queue {
-  margin: 0px 32px;
+  margin: 16px 32px;
   padding: 8px;
   background-color: $ice;
   border-radius: 16px;
@@ -56,7 +64,6 @@ mat-card {
   display: flex;
   justify-content: center;
   color: $purple;
-  transition: 2s;
 }
 .avatar-gamer {
   margin: 0 auto;
@@ -69,10 +76,28 @@ mat-card {
   .container-queue {
     margin: 16px;
   }
-
   mat-card {
     margin: 8px;
     min-height: 120px;
     min-width: 120px;
+  }
+}
+@media screen and (max-width: 415px) {
+  nav,
+  .info-queue {
+    display: block;
+  }
+  .nav-btn,
+  .queue-btn {
+    display: flex;
+    justify-content: center;
+  }
+  button {
+    margin: 2px;
+    padding: 2px 8px;
+  }
+  .avatar-gamer {
+    height: 50px;
+    width: 50px;
   }
 }
