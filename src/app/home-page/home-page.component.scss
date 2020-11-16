@@ -1,5 +1,4 @@
 #container {
-  background: #e5e5e5;
   color: #4b4fa1;
   height: 100%;
   font: 500 24px "Roboto", "sans-serif";
@@ -44,4 +43,47 @@ div .cadastro {
 .content div span {
   line-height: 30px;
   letter-spacing: 0.15px;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+  }
+
+  header div img { 
+    width: 100px;
+    margin: 8px;
+  }
+
+  .content { 
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+  }
+
+  div .text { 
+    width: 300px; 
+    text-align: start; 
+    padding: 24px;
+  }
+
+  div .text p { 
+    font-size: 48px; 
+    line-height: 38px; 
+    letter-spacing: 0.15px;
+  }
+
+  div .text span { 
+    font-size: 24px; 
+    line-height: 25px; 
+    letter-spacing: 0.15px;
+  }
+
+  .content img { 
+    height: 200px;
+    width: 250px;
+  }
 }
