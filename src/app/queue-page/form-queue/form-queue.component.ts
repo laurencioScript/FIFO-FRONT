@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { QueueService } from 'src/app/service/queue.service';
 
 @Component({
   selector: 'app-form-queue',
@@ -8,17 +9,17 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class FormQueueComponent implements OnInit {
   name : string = '';
-  constructor(public dialogRef: MatDialogRef<FormQueueComponent>) { }
+  constructor(public dialogRef: MatDialogRef<FormQueueComponent>,
+    private readonly queueService : QueueService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
   }
 
-  save(){
-    this.dialogRef.close({
-      id:this.generateId(),
-      name:this.name,
-      users:[]
-    });
+  async save(){
+    const queue = await this.queueService.createQueue({
+      titulo:this.name
+    })
+    this.dialogRef.close(queue);
   }
 
   generateId(){

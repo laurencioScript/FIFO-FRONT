@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
+import { QueueService } from '../service/queue.service';
 import { FormQueueComponent } from './form-queue/form-queue.component';
 
 interface User{
@@ -17,64 +18,81 @@ interface User{
 export class QueuePageComponent implements OnInit {
 
   userLogged : any ;
-  queues : any = [{
-    id : this.generateId(),
-    name : 'Atividade',
-    users : [
-      {
-        id:'1joel',
-        nickname:'Joel'
-    },{
-      id:'2Gigante',
-      nickname:'Gigante'
-    },{
-      id:'3Ariane',
-      nickname:'Ariane'
-    }]
-  }];
-  
+  queues : any = [];
 
-  constructor(private authService : AuthService, private router : Router, public dialog: MatDialog) {
+  constructor(private authService : AuthService, private router : Router, 
+    public dialog: MatDialog, 
+    private readonly queueService : QueueService) {
     if(this.authService.getUser() == 'null' || !JSON.parse(this.authService.getUser()).id ){
       this.router.navigateByUrl("");
     }
     this.userLogged = JSON.parse(this.authService.getUser());
    }
   
-  ngOnInit(): void {
-    // quando tiver back end vai ser aqui que iremos consumir o end point que carrega os usuarios que estão na fila
+  async ngOnInit() {
+    
+    this.reloadQueues()
+    
   }
 
   openForm(){
     const dialogRef = this.dialog.open(FormQueueComponent);
     dialogRef.afterClosed().subscribe(newQueue => {
       if(newQueue && newQueue.id){
-        this.queues.push(newQueue);
+        this.reloadQueues()
       }
     });
   }
 
-  enterQueue(users){
-    users.push(this.userLogged);
+  async enterQueue(queueId){
+    await this.queueService.enterQueue({
+      estado:'Em Fila',
+      idAtividade:queueId,
+      createdAt:new Date(),
+      idUsuario:this.userLogged.id
+    });
+    this.reloadQueues()
   }
 
-  leaveQueue({users,id}){
-    if(!this.userLogged){
+  async reloadQueues(){
+    const activitys = await this.queueService.getactivity();
+    const queues = await this.queueService.getQueues();
+
+    activitys.forEach(activity => {
+      activity.users = [];
+      queues.forEach(queue => {
+        if(queue.estado == "Em Fila" && queue.idAtividade == activity.id){
+          activity.users.push(queue)
+        }
+      });
+    });
+
+    this.queues = activitys;
+  }
+
+  async leaveQueue(queueId){
+    const queue = this.queues.find(queue => queueId == queue.id);
+    if(!queue){
       return
     }
-    this.queues.forEach(queue => {
-      if(queue.id == id){
-        queue.users = queue.users.filter(user => user.id != this.userLogged.id);
-      }
-    })
+    const user = queue.users.find(user => user.idUsuario == this.userLogged.id )
+    if(!user){
+      return
+    }
+    await this.queueService.leaveQueue(user.id,{
+      estado:'Saiu',
+    })  
+
+    this.reloadQueues()
   }
 
   userIsQueue(users){
-    return users.find(user => this.userLogged && user.id == this.userLogged.id);
+    return users.find(  user => this.userLogged && user.idUsuario == this.userLogged.id);
   }
 
-  deleteQueue({id}){
-    this.queues = this.queues.filter(queue => queue.id != id)
+  async deleteQueue(id){
+    await this.queueService.deleteQueue(id)
+    this.reloadQueues();
   }
 
   getRandomNumber(){
