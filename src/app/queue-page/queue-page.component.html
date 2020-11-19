@@ -14,11 +14,11 @@
   <main >
     <section *ngFor="let queue of queues" class="container-queue">
       <div class="info-queue">
-        <h1> {{queue.name}} </h1>
+        <h1> {{queue.titulo}} </h1>
         <div class="queue-btn">
-          <button mat-raised-button *ngIf="userIsQueue(queue.users)" (click)="leaveQueue(queue)">Sair na fila</button>
-          <button mat-raised-button [disabled]="userIsQueue(queue.users)" (click)="enterQueue(queue.users)">Entrar na fila</button>
-          <button mat-raised-button  (click)="deleteQueue(queue)">Apagar fila</button>
+          <button mat-raised-button *ngIf="userIsQueue(queue.users)" (click)="leaveQueue(queue.id)">Sair na fila</button>
+          <button mat-raised-button *ngIf="!userIsQueue(queue.users)" (click)="enterQueue(queue.id)">Entrar na fila</button>
+          <button mat-raised-button  (click)="deleteQueue(queue.id)">Apagar fila</button>
         </div>
       </div>
       <div class="container-queue-cards">
@@ -27,8 +27,8 @@
             <div class="avatar-gamer"></div>
             <div>
               <p>Posição <b>#{{i+1}}</b></p>
-              <p>{{user.nickname}}</p>
-              <p>Em espera</p>
+              <p>{{user.idUsuarioNavigation.nickname}}</p>
+              <p>{{queue.estado}}</p>
             </div>
           </div>
         </mat-card>
