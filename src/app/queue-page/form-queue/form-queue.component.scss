@@ -35,13 +35,31 @@ h2 {
     border-radius: 0px;
   }
 }
-@media screen and (max-width: 414px){
-  form {
-    width: 240px;
+@media only screen and (max-width: 767px) {
+  .mat-dialog-container {
+    display: flex;
+    justify-content: center;
     padding: 8px;
   }
-  mat-form-field{
-    align-self: center;
-    max-width: 240px;
+
+  h2 {
+    text-align: center;
+  }
+  form {
+    width: 170px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    mat-form-field {
+      width: 200px;
+    }
+  }
+  button {
+    width: 100px;
+  }
+
+  .btn-group {
+    display: flex;
   }
 }
