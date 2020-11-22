@@ -36,25 +36,31 @@ h2 {
   }
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media only screen and (max-width: 760px) {
+  .mat-dialog-container {
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+  }
+
   h2 {
     text-align: center;
   }
-
   form {
-    width: 200px;
-    padding: 8px;
+    width: 170px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 
     mat-form-field {
       width: 200px;
     }
   }
-
   button {
-   width: 100px;
+    width: 100px;
   }
 
-  .btn-group { 
+  .btn-group {
     display: flex;
   }
 }
