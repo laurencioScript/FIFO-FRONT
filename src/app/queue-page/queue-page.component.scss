@@ -1,7 +1,9 @@
 $orange: #fc6027;
 $ice: #e5e5e5;
 $purple: #4b4fa1;
+
 body {
+  background-color: $purple;
 }
 #container {
   height: 100%;
@@ -24,11 +26,15 @@ nav {
     width: 200px;
   }
 }
-button {
+.mat-raised-button {
   background-color: $orange;
   color: $ice;
   margin: 0 8px;
 }
+.mat-button {
+  color: $orange;
+}
+
 main {
   font-size: 16px;
   overflow: auto;
@@ -72,32 +78,29 @@ mat-card {
   background: url("/assets/img/gamepad.png") no-repeat center;
   border-radius: 50%;
 }
-@media only screen and (max-width: 700px) {
-  .container-queue {
-    margin: 16px;
-  }
-  mat-card {
-    margin: 8px;
-    min-height: 120px;
-    min-width: 120px;
-  }
-}
-@media screen and (max-width: 415px) {
-  nav,
-  .info-queue {
-    display: block;
-  }
-  .nav-btn,
-  .queue-btn {
+
+@media only screen and (max-width: 767px) {
+  header {
     display: flex;
     justify-content: center;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+    nav {
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        width: 100px;
+      }
+    }
   }
-  button {
-    margin: 2px;
-    padding: 2px 8px;
+  .container-queue {
+    margin: 8px;
+    mat-card {
+      margin: 8px;
+    }
   }
-  .avatar-gamer {
-    height: 50px;
-    width: 50px;
+  .info-queue {
+    flex-direction: column;
+    text-align: center;
   }
 }

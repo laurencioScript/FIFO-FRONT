@@ -5,9 +5,9 @@
         <img src="/assets/img/logo-fc.png">
       </a>
       <br/>
-      <div class="nav-btn">
+      <div>
         <button mat-raised-button (click)="openForm()">Criar Atividade</button>
-        <button mat-raised-button (click)="logout()">Sair</button>
+        <button mat-button (click)="logout()">Sair</button>
       </div>
     </nav>
   </header>
@@ -18,7 +18,7 @@
         <div class="queue-btn">
           <button mat-raised-button *ngIf="userIsQueue(queue.users)" (click)="leaveQueue(queue.id)">Sair na fila</button>
           <button mat-raised-button *ngIf="!userIsQueue(queue.users)" (click)="enterQueue(queue.id)">Entrar na fila</button>
-          <button mat-raised-button  (click)="deleteQueue(queue.id)">Apagar fila</button>
+          <button mat-button  (click)="deleteQueue(queue.id)">Apagar fila</button>
         </div>
       </div>
       <div class="container-queue-cards">
