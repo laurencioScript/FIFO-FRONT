@@ -14,6 +14,7 @@ export class FormLoginComponent implements OnInit {
 
   nickName : string = '';
   users : any = [];
+  password : any = "";
 
   constructor(private readonly authService : AuthService,
     private readonly userService : UserService, 
@@ -25,19 +26,24 @@ export class FormLoginComponent implements OnInit {
     this.users = await this.userService.getUsers();
   }
 
-  login(){
-    console.log('>>> this.users',this.users);
-    console.log('>>> this.nickName',this.nickName);
-    const existUser = this.users.find(user => user.nickname == this.nickName);
-
-    if(!existUser){
-      this.openSnackBar('Nickname invalido','ok','snack-bar-danger');
-      return
+  async login(){
+    try {
+      const {token} = await this.userService.login({
+        senha:this.password,
+        nickname:this.nickName
+      });
+      this.authService.setToken(token);
+      const userExist = this.users.find(user => user.nickname == this.nickName);
+      this.authService.setUser(JSON.stringify({nickname:this.nickName, id:userExist.id})) ;
+      this.dialogRef.close();
+      this.router.navigateByUrl("filas");
+    } catch (error) {
+      this.openSnackBar('Nickname ou senha invalido','ok','snack-bar-danger');
     }
+  }
 
-    this.authService.setUser(JSON.stringify(existUser)) ;
-    this.dialogRef.close();
-    this.router.navigateByUrl("filas");
+  isNotValid(){
+    return this.nickName.length <= 2 || this.password.length <= 2;
   }
 
   openSnackBar(message: string, action: string, color) {
