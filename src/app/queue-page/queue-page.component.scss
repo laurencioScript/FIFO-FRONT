@@ -50,13 +50,17 @@ main {
 .info-queue {
   margin: 16px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+}
 
+.row-header {
   h1 {
+    margin: 8px;
     font-weight: bold;
     color: $orange;
   }
 }
+
 .container-queue-cards {
   display: flex;
   overflow-x: auto;

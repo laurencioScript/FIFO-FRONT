@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
 import { QueueService } from '../service/queue.service';
+import { ModalConfirmationComponent } from '../shared/modal-confirmation/modal-confirmation.component';
 import { FormQueueComponent } from './form-queue/form-queue.component';
 
 interface User{
@@ -40,6 +41,20 @@ export class QueuePageComponent implements OnInit {
     dialogRef.afterClosed().subscribe(newQueue => {
       if(newQueue && newQueue.id){
         this.reloadQueues()
+      }
+    });
+  }
+
+  openConfirmation(queueId : any){
+    const dialogRef = this.dialog.open(ModalConfirmationComponent,{
+      data:{
+        tittle:'Aviso',
+        message:'Tem certeza que deseja excluir essa fila ?'
+      }
+    });
+    dialogRef.afterClosed().subscribe(async data => {
+      if(data){
+        await this.deleteQueue(queueId)
       }
     });
   }

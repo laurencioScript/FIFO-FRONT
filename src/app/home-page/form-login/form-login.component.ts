@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { UserService } from 'src/app/service/user.service';
-
+import jwtDecode from "jwt-decode";
 @Component({
   selector: 'app-form-login',
   templateUrl: './form-login.component.html',
@@ -32,9 +32,9 @@ export class FormLoginComponent implements OnInit {
         senha:this.password,
         nickname:this.nickName
       });
+      const user : any = jwtDecode(token)
       this.authService.setToken(token);
-      const userExist = this.users.find(user => user.nickname == this.nickName);
-      this.authService.setUser(JSON.stringify({nickname:this.nickName, id:userExist.id})) ;
+      this.authService.setUser(JSON.stringify({nickname:this.nickName, id:user.jti})) ;
       this.dialogRef.close();
       this.router.navigateByUrl("filas");
     } catch (error) {
