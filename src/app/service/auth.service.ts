@@ -15,4 +15,12 @@ export class AuthService {
     return localStorage.getItem('user')
   }
 
+  setToken(token){
+    localStorage.setItem('token',token)
+  }
+
+  getToken(){
+    return localStorage.getItem('token')
+  }
+
 }

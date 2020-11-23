@@ -5,21 +5,16 @@
         <img src="/assets/img/logo-fc.png">
       </a>
       <br/>
-      <div class="nav-btn">
+      <div>
         <button mat-raised-button (click)="openForm()">Criar Atividade</button>
-        <button mat-raised-button (click)="logout()">Sair</button>
+        <button mat-button (click)="logout()">Sair</button>
       </div>
     </nav>
   </header>
   <main >
     <section *ngFor="let queue of queues" class="container-queue">
-      <div class="info-queue">
+      <div class="row-header">
         <h1> {{queue.titulo}} </h1>
-        <div class="queue-btn">
-          <button mat-raised-button *ngIf="userIsQueue(queue.users)" (click)="leaveQueue(queue.id)">Sair na fila</button>
-          <button mat-raised-button *ngIf="!userIsQueue(queue.users)" (click)="enterQueue(queue.id)">Entrar na fila</button>
-          <button mat-raised-button  (click)="deleteQueue(queue.id)">Apagar fila</button>
-        </div>
       </div>
       <div class="container-queue-cards">
         <mat-card *ngFor="let user of queue.users; let i = index">
@@ -32,6 +27,13 @@
             </div>
           </div>
         </mat-card>
+      </div>
+      <div class="info-queue">
+        <div class="queue-btn">
+          <button mat-raised-button *ngIf="userIsQueue(queue.users)" (click)="leaveQueue(queue.id)">Sair na fila</button>
+          <button mat-raised-button *ngIf="!userIsQueue(queue.users)" (click)="enterQueue(queue.id)">Entrar na fila</button>
+          <button mat-button  (click)="openConfirmation(queue.id)">Apagar fila</button>
+        </div>
       </div>
     </section>
   </main>

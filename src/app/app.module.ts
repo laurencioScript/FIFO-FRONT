@@ -19,6 +19,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
 import { FormQueueComponent } from './queue-page/form-queue/form-queue.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalConfirmationComponent } from './shared/modal-confirmation/modal-confirmation.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormLoginComponent,
     QueuePageComponent,
     FormQueueComponent,
+    ModalConfirmationComponent,
+    RegisterPageComponent,
   ],
   imports: [
     BrowserModule,
