@@ -15,9 +15,12 @@
     <section *ngFor="let queue of queues" class="container-queue">
       <div class="row-header">
         <h1> {{queue.titulo}} </h1>
+        <h3 *ngIf="getPositionQueue(queue.id)>= 0">
+          Sua posição na fila é {{getPositionQueue(queue.id)}}#
+        </h3>
       </div>
       <div class="container-queue-cards">
-        <mat-card *ngFor="let user of queue.users; let i = index">
+        <mat-card [ngClass]="{'my-card':getPositionQueue(queue.id) == 1}" *ngFor="let user of queue.users; let i = index">
           <div>
             <div class="avatar-gamer"></div>
             <div>
