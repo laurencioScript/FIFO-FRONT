@@ -1,0 +1,21 @@
+<div style="width:100%;display: flex; align-items: center; flex-direction: column; margin: 64px;">
+  <h1>Cadastre-se</h1>
+  <form style="display: flex;flex-direction: column; width: 500px;">
+    <mat-form-field appearance="outline">
+      <mat-label>Digite seu nickname</mat-label>
+      <input matInput [(ngModel)]="nickname" autocomplete="off" name="senha" type="text" placeholder="Ex.: @sanguelaranja" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Digite sua senha</mat-label>
+      <input matInput [(ngModel)]="password" name="senha" autocomplete="off" type="password" placeholder="Ex.: 1234" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Digite sua senha novamente</mat-label>
+      <input matInput [(ngModel)]="passwordConfirm" name="senha" autocomplete="off" type="password" placeholder="Ex.: 1234" />
+    </mat-form-field>
+    <div style="display: flex;justify-content: flex-end;">
+      <button mat-button (click)="cancel()">Cancelar</button>  
+      <button mat-stroked-button [disabled]="isNotValid()" (click)="register()">Entrar</button>
+    </div>
+  </form>
+</div>

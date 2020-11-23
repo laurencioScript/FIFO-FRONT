@@ -53,7 +53,7 @@ export class UserService {
   async createUser(data){
     try{
       const responseRequest: any = await this.http
-        .post(`${this.developmentUrl}/Usuario/register`, data)
+        .post(`${this.developmentUrl}/Usuario`, data)
         .toPromise();
     } catch(e) {
       console.log('>>> error', e);

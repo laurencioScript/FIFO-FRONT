@@ -24,7 +24,7 @@ export class QueuePageComponent implements OnInit {
   constructor(private authService : AuthService, private router : Router, 
     public dialog: MatDialog, 
     private readonly queueService : QueueService) {
-    if(this.authService.getUser() == 'null' || !JSON.parse(this.authService.getUser()).id ){
+    if(this.authService.getToken() == 'null' || !this.authService.getToken()  ){
       this.router.navigateByUrl("");
     }
     this.userLogged = JSON.parse(this.authService.getUser());
@@ -116,6 +116,7 @@ export class QueuePageComponent implements OnInit {
 
   logout(){
     this.authService.setUser(null);
+    this.authService.setToken(null);
     this.router.navigateByUrl("");
   }
 
