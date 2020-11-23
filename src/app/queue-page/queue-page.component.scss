@@ -61,6 +61,10 @@ main {
   }
 }
 
+.my-card {
+  border: 10px solid red;
+}
+
 .container-queue-cards {
   display: flex;
   overflow-x: auto;
