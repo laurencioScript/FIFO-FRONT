@@ -61,7 +61,7 @@ export class QueuePageComponent implements OnInit {
     const dialogRef = this.dialog.open(ModalConfirmationComponent,{
       data:{
         tittle:'Aviso',
-        message:'Tem certeza que deseja excluir essa fila ?'
+        message:'Tem certeza que deseja excluir essa fila?'
       }
     });
     dialogRef.afterClosed().subscribe(async data => {

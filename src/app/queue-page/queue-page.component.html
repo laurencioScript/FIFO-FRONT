@@ -16,7 +16,7 @@
       <div class="row-header">
         <h1> {{queue.titulo}} </h1>
         <h3 *ngIf="getPositionQueue(queue.id)>= 0">
-          Sua posição na fila é {{getPositionQueue(queue.id)}}#
+          Sua posição na fila é <b>#{{getPositionQueue(queue.id)}}</b>.
         </h3>
       </div>
       <div class="container-queue-cards">
@@ -31,13 +31,11 @@
           </div>
         </mat-card>
       </div>
-      <div class="info-queue">
         <div class="queue-btn">
           <button mat-raised-button *ngIf="userIsQueue(queue.users)" (click)="leaveQueue(queue.id)">Sair na fila</button>
           <button mat-raised-button *ngIf="!userIsQueue(queue.users)" (click)="enterQueue(queue.id)">Entrar na fila</button>
           <button mat-button  (click)="openConfirmation(queue.id)">Apagar fila</button>
         </div>
-      </div>
     </section>
   </main>
   
