@@ -23,7 +23,7 @@ nav {
   padding: 0px 8px;
   display: flex;
   justify-content: space-around;
-  align-items: flex-start;
+  align-items: center;
   flex-wrap: wrap;
   form {
     margin-top: 8px;
@@ -57,8 +57,6 @@ nav {
     max-width: 500px;
     color: $blue;
     display: flex;
-    justify-items: center;
-    align-items: center;
     flex-direction: column;
     background-color: $ice;
     h1 {
@@ -100,7 +98,7 @@ nav {
 
       img {
         margin: 16px;
-        width: 300px;
+        width: 250px;
       }
     }
   }
