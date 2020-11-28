@@ -36,6 +36,18 @@ export class QueuePageComponent implements OnInit {
     
   }
 
+  getPositionQueue(queueId){
+    for (const queue of this.queues) {
+      if(queue.id == queueId){
+        for (let index = 0; index < queue.users.length; index++) {
+          if(queue.users[index].idUsuario == this.userLogged.id){
+            return index+1;
+          }
+        }
+      }
+    }
+  }
+
   openForm(){
     const dialogRef = this.dialog.open(FormQueueComponent);
     dialogRef.afterClosed().subscribe(newQueue => {
@@ -49,7 +61,7 @@ export class QueuePageComponent implements OnInit {
     const dialogRef = this.dialog.open(ModalConfirmationComponent,{
       data:{
         tittle:'Aviso',
-        message:'Tem certeza que deseja excluir essa fila ?'
+        message:'Tem certeza que deseja excluir essa fila?'
       }
     });
     dialogRef.afterClosed().subscribe(async data => {

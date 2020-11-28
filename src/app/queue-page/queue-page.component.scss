@@ -47,24 +47,36 @@ main {
   background-color: $ice;
   border-radius: 16px;
 }
-.info-queue {
-  margin: 16px;
+.queue-btn {
+  margin: 8px;
   display: flex;
   justify-content: flex-end;
 }
 
 .row-header {
+ 
   h1 {
     margin: 8px;
     font-weight: bold;
     color: $orange;
   }
+
+  h3 {
+    color: $purple;
+    margin: 8px;
+  }
+}
+
+.my-card {
+  box-shadow: 0px 0px 16px 0px rgba(252,96,39,0.99);
 }
 
 .container-queue-cards {
   display: flex;
   overflow-x: auto;
   white-space: nowrap;
+  overflow-y: hidden;
+  
 }
 mat-card {
   margin: 16px;
@@ -74,6 +86,11 @@ mat-card {
   display: flex;
   justify-content: center;
   color: $purple;
+  transition: transform .1s;
+ 
+}
+mat-card:hover{
+  transform: scale(1.03);
 }
 .avatar-gamer {
   margin: 0 auto;
@@ -103,7 +120,7 @@ mat-card {
       margin: 8px;
     }
   }
-  .info-queue {
+  .queue-btn {
     flex-direction: column;
     text-align: center;
   }

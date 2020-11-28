@@ -1,6 +1,14 @@
-<div style="width:100%;display: flex; align-items: center; flex-direction: column; margin: 64px;">
-  <h1>Cadastre-se</h1>
-  <form style="display: flex;flex-direction: column; width: 500px;">
+<header>
+  <nav>
+    <a href="/">
+      <img src="/assets/img/logo-fc.png">
+    </a>
+    </nav>
+</header>
+<div id="container">
+ 
+  <form>
+    <h1>Cadastre-se</h1>
     <mat-form-field appearance="outline">
       <mat-label>Digite seu nickname</mat-label>
       <input matInput [(ngModel)]="nickname" autocomplete="off" name="senha" type="text" placeholder="Ex.: @sanguelaranja" />
@@ -10,12 +18,12 @@
       <input matInput [(ngModel)]="password" name="senha" autocomplete="off" type="password" placeholder="Ex.: 1234" />
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Digite sua senha novamente</mat-label>
+      <mat-label>Confirme sua senha</mat-label>
       <input matInput [(ngModel)]="passwordConfirm" name="senha" autocomplete="off" type="password" placeholder="Ex.: 1234" />
     </mat-form-field>
-    <div style="display: flex;justify-content: flex-end;">
+    <div class="form-btn">
       <button mat-button (click)="cancel()">Cancelar</button>  
-      <button mat-stroked-button [disabled]="isNotValid()" (click)="register()">Entrar</button>
+      <button mat-stroked-button [disabled]="isNotValid()" (click)="register()">Cadastrar</button>
     </div>
   </form>
 </div>
