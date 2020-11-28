@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
 import { QueueService } from '../service/queue.service';
@@ -23,7 +24,8 @@ export class QueuePageComponent implements OnInit {
 
   constructor(private authService : AuthService, private router : Router, 
     public dialog: MatDialog, 
-    private readonly queueService : QueueService) {
+    private readonly queueService : QueueService,
+    private _snackBar: MatSnackBar) {
     if(this.authService.getToken() == 'null' || !this.authService.getToken()  ){
       this.router.navigateByUrl("");
     }
@@ -31,21 +33,39 @@ export class QueuePageComponent implements OnInit {
    }
   
   async ngOnInit() {
-    
     this.reloadQueues()
-    
+    setInterval(()=>{
+      this.openSnackBar('Atualizando...','','snack-bar-warning');
+      this.reloadQueues()
+    },1000*120)
   }
 
-  getPositionQueue(queueId){
+  editQueue(queue){
+    const dialogRef = this.dialog.open(FormQueueComponent,{
+      data:{
+        queueId:queue.id,
+        name:queue.titulo,
+        numberPlayers:queue.jogadoresPorVez,
+        mode:'update'
+      }
+    });
+    dialogRef.afterClosed().subscribe(queueu => {      
+      this.reloadQueues();
+    });
+  }
+
+  getPositionQueue(queueId,userId?){
+    userId = userId ? userId : this.userLogged.id;
     for (const queue of this.queues) {
       if(queue.id == queueId){
         for (let index = 0; index < queue.users.length; index++) {
-          if(queue.users[index].idUsuario == this.userLogged.id){
+          if(queue.users[index].idUsuario == userId){
             return index+1;
           }
         }
       }
     }
+    return null;
   }
 
   openForm(){
@@ -122,18 +142,19 @@ export class QueuePageComponent implements OnInit {
     this.reloadQueues();
   }
 
-  getRandomNumber(){
-    return Math.floor(Math.random() * 888 + 1)
-  }
-
   logout(){
     this.authService.setUser(null);
     this.authService.setToken(null);
     this.router.navigateByUrl("");
   }
 
-  generateId(){
-    return Math.floor(Math.random() * 99999 + 1)
+  openSnackBar(message: string, action: string, color) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+      verticalPosition: "top",
+      horizontalPosition: "center",
+      panelClass: color,
+    });
   }
   
 }
