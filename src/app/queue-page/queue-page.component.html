@@ -14,19 +14,24 @@
   <main >
     <section *ngFor="let queue of queues" class="container-queue">
       <div class="row-header">
-        <h1> {{queue.titulo}} </h1>
-        <h3 *ngIf="getPositionQueue(queue.id)>= 0">
+        <h1 style="cursor: pointer; display: inline;" (click)="editQueue(queue)" > {{queue.titulo}}   
+          <span class="material-icons"> create </span>
+        </h1> 
+        <h3>
+          <b>{{queue.jogadoresPorVez}}</b> jogadores por partida
+        </h3>
+        <h3 *ngIf="getPositionQueue(queue.id) && getPositionQueue(queue.id)>= 0">
           Sua posição na fila é <b>#{{getPositionQueue(queue.id)}}</b>.
         </h3>
       </div>
       <div class="container-queue-cards">
-        <mat-card [ngClass]="{'my-card':getPositionQueue(queue.id) == 1}" *ngFor="let user of queue.users; let i = index">
+        <mat-card [ngClass]="{'my-card':getPositionQueue(queue.id) && userLogged.id == user.idUsuario}" *ngFor="let user of queue.users; let i = index">
           <div>
             <div class="avatar-gamer"></div>
             <div>
               <p>Posição <b>#{{i+1}}</b></p>
               <p>{{user.idUsuarioNavigation.nickname}}</p>
-              <p>{{queue.estado}}</p>
+              <p>{{ getPositionQueue(queue.id,user.idUsuario) <= queue.jogadoresPorVez ? 'Jogando' : 'Em fila'}}</p>
             </div>
           </div>
         </mat-card>

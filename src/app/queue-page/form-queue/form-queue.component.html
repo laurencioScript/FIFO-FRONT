@@ -12,9 +12,19 @@
         autocomplete="off"
       />
     </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>N° Jogadores/Partida</mat-label>
+      <input
+        matInput
+        [(ngModel)]="numberPlayers"
+        name="numberPlayers"
+        type="number"
+        autocomplete="off"
+      />
+    </mat-form-field>
   </div>
   <div class="btn-group">
     <button mat-button mat-dialog-close>Cancelar</button>
-    <button mat-stroked-button [disabled]="name.length <= 2" (click)="save()" >Criar</button>
+    <button mat-stroked-button [disabled]="name.length <= 2" (click)="save()" >{{mode == 'create' ? 'Criar' : 'Atualizar'}}</button>
   </div>
 </form>
