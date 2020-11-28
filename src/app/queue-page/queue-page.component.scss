@@ -1,19 +1,16 @@
-$orange: #fc6027;
-$ice: #e5e5e5;
-$purple: #4b4fa1;
+$orange: #fe5517;
+$ice: #f5f0f0;
+$blue: #5251a2;
 
-body {
-  background-color: $purple;
-}
 #container {
   height: 100%;
   width: 100%;
-  background-color: $purple;
+  background-color: $blue;
 }
 
 header {
   padding: 16px;
-  background-color: $purple;
+  background-color: $blue;
   height: 80px;
 }
 nav {
@@ -38,14 +35,14 @@ nav {
 main {
   font-size: 16px;
   overflow: auto;
-  padding: 16px 0;
-  background-color: $purple;
+  background-color: $blue;
 }
 .container-queue {
-  margin: 16px 32px;
-  padding: 8px;
+  margin: 16px;
+  padding: 16px;
   background-color: $ice;
   border-radius: 16px;
+  box-shadow: 0px 5px 6px 0px rgba(6, 6, 31, 0.3);
 }
 .queue-btn {
   margin: 8px;
@@ -54,7 +51,6 @@ main {
 }
 
 .row-header {
- 
   h1 {
     margin: 8px;
     font-weight: bold;
@@ -62,13 +58,13 @@ main {
   }
 
   h3 {
-    color: $purple;
+    color: $blue;
     margin: 8px;
   }
 }
 
 .my-card {
-  box-shadow: 0px 0px 16px 0px rgba(252,96,39,0.99);
+  box-shadow: 0px 0px 16px 0px rgba(252, 96, 39, 0.99);
 }
 
 .container-queue-cards {
@@ -76,7 +72,6 @@ main {
   overflow-x: auto;
   white-space: nowrap;
   overflow-y: hidden;
-  
 }
 mat-card {
   margin: 16px;
@@ -85,11 +80,11 @@ mat-card {
   text-align: center;
   display: flex;
   justify-content: center;
-  color: $purple;
-  transition: transform .1s;
- 
+  color: $blue;
+  transition: transform 0.1s;
+  box-shadow: 0px 5px 6px 0px rgba(6, 6, 31, 0.3);
 }
-mat-card:hover{
+mat-card:hover {
   transform: scale(1.03);
 }
 .avatar-gamer {
@@ -114,11 +109,17 @@ mat-card:hover{
       }
     }
   }
+
   .container-queue {
     margin: 8px;
     mat-card {
       margin: 8px;
     }
+  }
+
+  .avatar-gamer {
+    height: 50px;
+    width: 50px;
   }
   .queue-btn {
     flex-direction: column;
