@@ -37,7 +37,7 @@ export class RegisterPageComponent implements OnInit {
       this.authService.setUser(JSON.stringify({nickname:this.nickname, id:user.jti})) ;
       this.router.navigateByUrl("filas");
     } catch (error) {
-      this.openSnackBar('Nickname ja esta cadastrado!','ok','snack-bar-danger');
+      this.openSnackBar('Nickname já esta cadastrado! Tente novamente.','Ok','snack-bar-danger');
     }
   }
 
