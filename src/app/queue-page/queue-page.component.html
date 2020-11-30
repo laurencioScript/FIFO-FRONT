@@ -2,7 +2,7 @@
   <header>
     <nav>
       <a href="/">
-        <img src="/assets/img/logo-fc.png">
+        <img src="/assets/img/logo-fc-branco.png">
       </a>
       <br/>
       <div>
@@ -18,7 +18,7 @@
           <span class="material-icons"> create </span>
         </h1> 
         <h3>
-          <b>{{queue.jogadoresPorVez}}</b> jogadores por partida
+          <b>{{queue.jogadoresPorVez}}</b> jogadores por partida.
         </h3>
         <h3 *ngIf="getPositionQueue(queue.id) && getPositionQueue(queue.id)>= 0">
           Sua posição na fila é <b>#{{getPositionQueue(queue.id)}}</b>.
@@ -31,7 +31,7 @@
             <div>
               <p>Posição <b>#{{i+1}}</b></p>
               <p>{{user.idUsuarioNavigation.nickname}}</p>
-              <p>{{ getPositionQueue(queue.id,user.idUsuario) <= queue.jogadoresPorVez ? 'Jogando' : 'Em fila'}}</p>
+              <p><i>{{ getPositionQueue(queue.id,user.idUsuario) <= queue.jogadoresPorVez ? 'Jogando' : 'Em fila'}}</i></p>
             </div>
           </div>
         </mat-card>

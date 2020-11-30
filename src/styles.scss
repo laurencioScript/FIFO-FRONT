@@ -1,8 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+$orange: #fe5517;
+$ice: #f0f0e6;
+$blue: #5251a2;
 
 html,
 body {
   height: 100%;
+  background-color: $ice;
 }
 body {
   margin: 0;

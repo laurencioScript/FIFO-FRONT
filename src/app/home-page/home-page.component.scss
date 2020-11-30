@@ -1,5 +1,9 @@
+$orange: #fe5517;
+$ice: #f0f0e6;
+$blue: #5251a2;
+
 #container {
-  color: #4b4fa1;
+  color:$blue;
   height: 100%;
   font: 500 24px "Roboto", "sans-serif";
 }
@@ -13,12 +17,12 @@ div img {
   width: 200px;
 }
 div .login {
-  color: #fc6027;
+  color: $orange;
   margin-right: 8px;
 }
 div .cadastro {
-  background: #fc6027;
-  color: #e5e5e5;
+  background: $orange;
+  color: $ice;
 }
 .content {
   display: flex;
